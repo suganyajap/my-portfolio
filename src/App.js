@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
-
+import "./App.css";
+import { useEffect } from "react";
+import { BrowserRouter } from "react-router-dom";
+import Main from "./Pages";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function App() {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+      delay: 10,
+      startEvent: "DOMContentLoaded",
+      initClassName: "aos-init",
+      once: false,
+    });
+  });
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Main />
+    </BrowserRouter>
   );
 }
 
